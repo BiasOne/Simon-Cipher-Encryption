@@ -1,0 +1,11 @@
+
+State Machine - |simon_top|controller:Controller_1|state
+Name state.FINISH state.STALL state.RAM_WRITE state.LOOP_BODY state.LOOP_COND state.LOAD state.LOAD_KEY state.START 
+state.START 0 0 0 0 0 0 0 0 
+state.LOAD_KEY 0 0 0 0 0 0 1 1 
+state.LOAD 0 0 0 0 0 1 0 1 
+state.LOOP_COND 0 0 0 0 1 0 0 1 
+state.LOOP_BODY 0 0 0 1 0 0 0 1 
+state.RAM_WRITE 0 0 1 0 0 0 0 1 
+state.STALL 0 1 0 0 0 0 0 1 
+state.FINISH 1 0 0 0 0 0 0 1 

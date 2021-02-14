@@ -1,0 +1,134 @@
+--Jonathan Cruz
+--University of Florida
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.constants.all;
+
+entity simon is
+   port(
+	clk	: in std_logic;
+	rst	: in std_logic;	
+	key_in	: in std_logic_vector(2*BLOCK_SIZE-1 downto 0); --key input				-- [i-1] [i-2] [i-3] [i-4]
+ 	input	: in std_logic_vector(BLOCK_SIZE-1 downto 0); --plaintext or ciphertext
+	round_count : in std_logic_vector(4 downto 0); -- current round count
+	mux_x_sel, mux_y_sel : in std_logic_vector(1 downto 0); --control for muxes
+	ff_key_en, ff_x_en, ff_y_en : in std_logic; --enable for FFs
+	output	: out std_logic_vector(BLOCK_SIZE-1 downto 0)); --final plaintext or ciphertext
+end simon;
+
+architecture datapath of simon is
+--key_expansion component
+component key_expansion is
+    port(
+	key_in	: in std_logic_vector(2*BLOCK_SIZE-1 downto 0); -- 2*BLOCK_SIZE-1 {round_key[i+3], round_key[i+2], round_key[i+1], round_key[i]}
+	-- 2*BLOCK_SIZE-1 {round_key[i-1], round_key[i-2], round_key[i-3], round_key[i-4]}
+	round_count : in std_logic_vector(4 downto 0); -- current round
+	key_out	: out std_logic_vector(WORD_SIZE-1 downto 0) -- WORD_SIZE-1 round_key[i+4]
+    );
+end component;
+--round component
+component round is    
+port(   
+--the input is already split here  
+x         : in std_logic_vector(15 downto 0); --most significant word ofinput    WORD_SIZE-1    
+y         : in std_logic_vector(15 downto 0);-- least signficant word of input
+round_key : in std_logic_vector(15 downto 0); 
+round_out : out std_logic_vector(31 downto 0)    
+);
+end component;
+
+component dflop_64 is
+port 
+(
+enable,clk,rst : in std_logic;
+input  : in  std_logic_vector(2*BLOCK_SIZE -1 downto 0);
+output : out std_logic_vector(2*BLOCK_SIZE -1 downto 0)
+);
+end component; 
+component split is
+port 
+(
+input1: in  std_logic_vector(BLOCK_SIZE -1 downto 0);
+output1,output2 : out std_logic_vector(WORD_SIZE -1 downto 0)
+);
+end component; 
+component dflop_16 is
+
+port 
+(
+enable,rst,clk : in std_logic;
+input  : in  std_logic_vector(WORD_SIZE -1 downto 0);
+output : out std_logic_vector(WORD_SIZE -1 downto 0)
+);
+end component; 
+
+component mux_4x1 is
+
+port 
+(
+sel : in std_logic_vector(1 downto 0);
+input1,input2,input3,input4  : in  std_logic_vector(WORD_SIZE -1 downto 0);
+output : out std_logic_vector(WORD_SIZE -1 downto 0)
+);
+end component;
+----------- your signals here -----------
+type KEY_EXPANSION_ARR is array (0 to N_ROUNDS-1) of std_logic_vector(WORD_SIZE-1 downto 0);
+type ROUND_COUNT_ARR is array (0 to N_ROUNDS-1) of std_logic_vector(4 downto 0);
+--connect round keys to round module
+signal round_key : KEY_EXPANSION_ARR; --round keys
+--index to be used in order to get the right key out of key expansion
+signal round_count_index : ROUND_COUNT_ARR; --index for round keys
+--connect flip flop to key expansion
+signal dflipflopConnect  : std_logic_vector(2*BLOCK_SIZE-1 downto 0);
+--connect the output of round to the split module
+signal round_outConnect  : std_logic_vector(BLOCK_SIZE-1 downto 0);
+--connect the dffs to the round modul
+signal dff_x_out_connect, dff_y_out_connect,dff_x_in_connect,dff_y_in_connect : std_logic_vector(WORD_SIZE-1 downto 0);
+--connect the split module to the 4x1 muxes
+signal split_x_outConnect, split_y_outConnect : std_logic_vector(WORD_SIZE-1 downto 0);
+--
+signal round_key_temp :std_logic_vector(15 downto 0);
+begin
+-----initialize round keys taken from input here-------
+--first four round keys
+round_key(0) <= key_in(15 downto 0);
+round_key(1) <= key_in(31 downto 16);
+round_key(2) <= key_in(47 downto 32);
+round_key(3) <= key_in(63 downto 48);
+--round count array for key expansion
+round_count_index <= ("00000","00001","00010", "00011","00100","00101","00110","00111",
+                "01000","01001","01010","01011");
+-- generate round keys
+--GEN_ROUND_KEYS: for i in 4 to 11 generate
+U_GEN1: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(4), key_out => round_key(4));
+U_GEN2: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(5), key_out => round_key(5));
+U_GEN3: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(6), key_out => round_key(6));
+U_GEN4: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(7), key_out => round_key(7));
+U_GEN5: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(8), key_out => round_key(8));
+U_GEN6: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(9), key_out => round_key(9));
+U_GEN7: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(10), key_out => round_key(10));
+U_GEN8: key_expansion port map (key_in => dflipflopConnect, round_count => round_count_index(11), key_out => round_key(11));
+
+----------- your code here -----------
+--process(round_count)
+--variable round_key_temp2 : std_logic_vector(15 downto 0);
+--begin
+--round_key_temp2 :=  round_key(to_integer(unsigned(round_count)));
+round_key_temp  <=  round_key(to_integer(unsigned(round_count)));
+--end process;
+--(to_integer(unsigned(round_count)))
+
+ent1: dflop_64 port map (enable => ff_key_en,clk => clk,rst => rst,output => dflipflopConnect,input => key_in);
+ent2: round    port map (x=> dff_x_out_connect, y=> dff_y_out_connect, round_key => round_key_temp,  round_out => round_outConnect);
+ent3: split    port map (input1 => round_outConnect, output1 => split_x_outConnect,output2 => split_y_outConnect );
+ent4: dflop_16 port map (enable => ff_x_en, clk => clk, rst => rst, input => dff_x_in_connect,output => dff_x_out_connect);
+ent5: dflop_16 port map (enable => ff_y_en, clk => clk, rst => rst, input => dff_y_in_connect,output => dff_y_out_connect);
+ent6: mux_4x1  port map (sel => mux_x_sel,input1 => input(31 downto 16),input2 => input(15 downto 0) ,input3 =>split_x_outConnect,input4 =>split_y_outConnect, output =>dff_x_in_connect);
+ent7: mux_4x1  port map (sel => mux_y_sel,input1 => input(31 downto 16),input2 => input(15 downto 0),input3 =>split_x_outConnect,input4 =>split_y_outConnect, output =>dff_y_in_connect);
+
+output(31 downto 16)  <= dff_x_out_connect;
+output(15 downto 0)   <= dff_y_out_connect;
+
+end datapath;

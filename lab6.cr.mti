@@ -1,0 +1,191 @@
+{D:/digitalDesign/Lab 6/round.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/round.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity round
+-- Compiling architecture BHV of round
+
+} {} {}} {D:/digitalDesign/Lab 6/reg64.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/reg64.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity reg64
+-- Compiling architecture SYNC_RST of reg64
+
+} {} {}} {D:/digitalDesign/Lab 6/cat.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/cat.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity cat
+-- Compiling architecture BHVcat of cat
+
+} {} {}} {D:/digitalDesign/Lab 6/key_expansion_tb.vhd} {2 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/key_expansion_tb.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity key_expansion_tb
+-- Compiling architecture TB of key_expansion_tb
+-- Loading package NUMERIC_STD
+-- Loading entity key_expansion
+** Warning: D:/digitalDesign/Lab 6/key_expansion_tb.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: D:/digitalDesign/Lab 6/key_expansion_tb.vhd(43): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: D:/digitalDesign/Lab 6/key_expansion_tb.vhd(51): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} {D:/digitalDesign/Lab 6/counter5bit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/counter5bit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity counter5bit
+-- Compiling architecture BHV_UNSIGNED of counter5bit
+
+} {} {}} {D:/digitalDesign/Lab 6/controller.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/controller.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity controller
+-- Compiling architecture FSM2P of controller
+
+} {} {}} {D:/digitalDesign/Lab 6/mux_2x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/mux_2x1.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity mux_2x1
+-- Compiling architecture IF_STATEMENT of mux_2x1
+
+} {} {}} {D:/digitalDesign/Lab 6/round_tb.vhd} {2 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/round_tb.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity round_tb
+-- Compiling architecture TB of round_tb
+-- Loading package NUMERIC_STD
+-- Loading entity round
+** Warning: D:/digitalDesign/Lab 6/round_tb.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} {D:/digitalDesign/Lab 6/key_expansion.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/key_expansion.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity key_expansion
+-- Compiling architecture BHV of key_expansion
+
+} {} {}} {D:/digitalDesign/Lab 6/constants.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/constants.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package constants
+
+} {} {}} {D:/digitalDesign/Lab 6/reg16.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/reg16.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity reg16
+-- Compiling architecture SYNC_RST of reg16
+
+} {} {}} {D:/digitalDesign/Lab 6/mux_4x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/mux_4x1.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity mux_4x1
+-- Compiling architecture STR of mux_4x1
+-- Loading entity mux_2x1
+
+} {} {}} {D:/digitalDesign/Lab 6/simon.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/simon.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity simon
+-- Compiling architecture datapath of simon
+-- Loading entity key_expansion
+-- Loading entity mux_4x1
+-- Loading entity reg16
+-- Loading entity reg64
+-- Loading entity round
+-- Loading entity cat
+
+} {} {}} {D:/digitalDesign/Lab 6/outram.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/outram.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity outram
+-- Compiling architecture SYN of outram
+
+} {} {}} {D:/digitalDesign/Lab 6/simon_top.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/simon_top.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package constants
+-- Compiling entity simon_top
+-- Compiling architecture STR of simon_top
+-- Loading entity controller
+-- Loading entity simon
+-- Loading entity counter5bit
+-- Loading package altera_mf_components
+-- Loading entity inram
+-- Loading entity outram
+-- Loading entity keyrom
+
+} {} {}} {D:/digitalDesign/Lab 6/simon_top_tb.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/simon_top_tb.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package constants
+-- Compiling entity simon_top_tb
+-- Compiling architecture TB of simon_top_tb
+-- Loading package NUMERIC_STD
+-- Loading entity simon_top
+
+} {} {}} {D:/digitalDesign/Lab 6/keyrom.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/keyrom.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity keyrom
+-- Compiling architecture SYN of keyrom
+
+} {} {}} {D:/digitalDesign/Lab 6/inram.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/digitalDesign/Lab 6/inram.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity inram
+-- Compiling architecture SYN of inram
+
+} {} {}}
